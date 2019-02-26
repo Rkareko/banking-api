@@ -1,7 +1,7 @@
 # banking-api
-A simple online banking API with makeDeposit, makeWithdwal and getBalance endpoints.
+A simple online banking API with makeDeposit, makeWithdwal and getBalance end-points.
 This application is built using spring-boot framework and data is stored in H2 (in-memory database).
-The API accepts requests in JSON format and send out JSON respnses as well.
+The API accepts requests in JSON format and sends out JSON responses as well.
 
 # How to deploy the application.
 In the root folder i.e. banking-api run the following commands:-
