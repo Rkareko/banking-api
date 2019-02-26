@@ -14,9 +14,9 @@ import banking.api.constants.Constants.TransactionTypes;
 import banking.api.db.models.Customer;
 import banking.api.db.models.CustomerAccount;
 import banking.api.db.models.CustomerTransaction;
-import banking.api.db.repository.CustomerAccountMybatisMapper;
+import banking.api.db.repository.CustomerAccountMybatisRepository;
 import banking.api.db.repository.CustomerMybatisRepository;
-import banking.api.db.repository.CustomerTransactionMybatisMapper;
+import banking.api.db.repository.CustomerTransactionMybatisRepository;
 import banking.api.exceptions.InvalidResourceException;
 import banking.api.exceptions.MissingResourceException;
 import banking.api.exceptions.UnknownException;
@@ -30,10 +30,10 @@ public class CustomerOperationsServiceImpl implements CustomerOperationsService 
 	CustomerMybatisRepository customerRepository;
 
 	@Autowired
-	CustomerAccountMybatisMapper customerAccountRepository;
+	CustomerAccountMybatisRepository customerAccountRepository;
 
 	@Autowired
-	CustomerTransactionMybatisMapper customerTransactionRepository;
+	CustomerTransactionMybatisRepository customerTransactionRepository;
 
 	@Override
 	public Customer findCustomerById(long customerId) {

@@ -32,18 +32,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:2.0.5.RELEASE'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.0'
     implementation 'com.h2database:h2:1.4.197'
-    implementation 'org.junit.jupiter:junit-jupiter-api:5.4.0'
 
-    //testImplementation 'org.springframework.boot:spring-boot-starter-test:'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.0.5.RELEASE'
 
-    // Use TestNG framework, also requires calling test.useTestNG() below
-    testImplementation 'org.testng:testng:6.14.3'
 }
 
 // Define the main class for the application
 mainClassName = 'banking.api.App'
-
-test {
-    // Use TestNG for unit tests
-    useTestNG()
-}

@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Update;
 import banking.api.db.models.CustomerTransaction;
 
 @Mapper
-public interface CustomerTransactionMybatisMapper {
+public interface CustomerTransactionMybatisRepository {
 	
 	@Select("SELECT * FROM customer_transactions WHERE id = #{id}")
 	public CustomerTransaction findById(long id);

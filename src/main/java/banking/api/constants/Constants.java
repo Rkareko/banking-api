@@ -12,7 +12,7 @@ public class Constants {
 		public static String INSUFFICIENT_FUNDS_FOR_WITHDRAWAL = "Insufficent funds to perform a withdrawal";
 		public static String PROVIDE_AMOUNT_GREATER_THAN_ZERO = "Please provide an amount greater than zero";
 		public static String DEPOSIT_SUCCESS = "Deposit successfully made";
-		public static String WITHDRAWAL_SUCCESS = "Deposit successfully made";
+		public static String WITHDRAWAL_SUCCESS = "Withdrawal successfully made";
 		public static String REQUEST_SUCCESS = "Request processed successfully";
 		public static String REQUEST_FAILURE = "Request processing failed";	
 		public static String WELCOME_MSG = "Welcome to online banking";
@@ -24,8 +24,13 @@ public class Constants {
 	
 	public static class TransactionTypes { // 1 = deposit, 2 = withdrawal. Only types supported for the time being
 		public static short DEPOSIT = 1; 
-		public static short WITHDRAWAL = 2; 
-		
+		public static short WITHDRAWAL = 2; 		
 	}
-
+	
+	public static class EndPoints {
+		public static String CHECK_BALANCE_ENDPOINT = "/customer/balance/";
+		public static String MAKE_DEPOSIT_ENDPOINT = "/customer/deposit/";
+		public static String MAKE_WITHDRAWAL_ENDPOINT = "/customer/withdraw/";
+	}
+	
 }

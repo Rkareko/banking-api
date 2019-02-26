@@ -73,7 +73,7 @@ public class CustomerOperationsController {
 	
 	@PostMapping
 	@RequestMapping("/customer/withdraw")
-	public GenericResponse makeWithdrawa(@RequestBody Customer customer) {	
+	public GenericResponse makeWithdrawal(@RequestBody Customer customer) {	
 		boolean customerWithdrawalSucceeded = false;
 		GenericResponse genericResponse = null;
 		
