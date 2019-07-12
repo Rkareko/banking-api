@@ -1,5 +1,25 @@
 package banking.api;
 
+import banking.api.constants.Constants.EndPoints;
+import banking.api.constants.Constants.Messages;
+import banking.api.controllers.CustomerOperationsController;
+import banking.api.db.models.Customer;
+import banking.api.db.repository.CustomerAccountMybatisRepository;
+import banking.api.db.repository.CustomerMybatisRepository;
+import banking.api.services.CustomerOperationsService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+
+import java.math.BigDecimal;
+
 import static org.hamcrest.Matchers.containsString;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -7,33 +27,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.math.BigDecimal;
-
-import org.json.JSONObject;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.base.Verify;
-
-import banking.api.constants.Constants.EndPoints;
-import banking.api.constants.Constants.Messages;
-import banking.api.controllers.CustomerOperationsController;
-import banking.api.db.models.Customer;
-import banking.api.db.models.CustomerAccount;
-import banking.api.db.repository.CustomerAccountMybatisRepository;
-import banking.api.db.repository.CustomerMybatisRepository;
-import banking.api.services.CustomerOperationsService;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(CustomerOperationsController.class)
+@AutoConfigureRestDocs(outputDir =  "target/snippets")
 public class CustomerOperationsControllerTests {
 
 	@Autowired
@@ -61,7 +59,8 @@ public class CustomerOperationsControllerTests {
 				.thenReturn(testBalance);
 		
 		this.mockMvc.perform(get(EndPoints.CHECK_BALANCE_ENDPOINT + testNationalIdNUm)).andDo(print()).andExpect(status().isOk())
-				.andExpect(content().string(containsString(testBalance.toString())));
+				.andExpect(content().string(containsString(testBalance.toString())))
+				.andDo(document("customer"));
 
 	}
 
