@@ -20,7 +20,13 @@ import banking.api.exceptions.UnknownException;
 import banking.api.response.models.GenericResponse;
 import banking.api.services.CustomerOperationsService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
+@Api(value="/customer",description="Customer Profile",produces ="application/json")
 public class CustomerOperationsController {
 		
 	@Autowired
@@ -33,8 +39,15 @@ public class CustomerOperationsController {
 	public String welcomeMessage() {
 		return Messages.WELCOME_MSG;		
 	}
-	
-	
+
+
+
+	@ApiOperation(value="get balance",response=Customer.class)
+	@ApiResponses(value={
+			@ApiResponse(code=200,message="Customer Details Retrieved",response=GenericResponse.class),
+			@ApiResponse(code=500,message="Internal Server Error"),
+			@ApiResponse(code=404,message="Customer not found")
+	})
 	@GetMapping("/customer/balance/{nationalIdNum}")
 	public GenericResponse checkBalance(@PathVariable("nationalIdNum") Long nationalIdNum ) {
 		BigDecimal accountBalance = null;
