@@ -1,6 +1,6 @@
 language: java
 script:
-  - ./gradlew build clean build
+  - ./gradlew build clean build -x test
   - ./gradlew javadoc
 deploy:
   provider: pages
