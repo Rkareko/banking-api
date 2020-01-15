@@ -1,3 +1,11 @@
 language: java
 script:
   - ./gradlew build clean build
+  - ./gradlew javadoc
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $github_token
+  local_dir: build/docs/javadoc/
+  on:
+    branch: master
