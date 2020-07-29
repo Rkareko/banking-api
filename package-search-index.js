@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"banking.api"},{"l":"banking.api.constants"},{"l":"banking.api.controller.advice"},{"l":"banking.api.controllers"},{"l":"banking.api.db.models"},{"l":"banking.api.db.repository"},{"l":"banking.api.exceptions"},{"l":"banking.api.response.models"},{"l":"banking.api.services"}]
