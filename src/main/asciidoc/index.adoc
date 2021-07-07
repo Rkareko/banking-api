@@ -1,0 +1,9 @@
+= API documentation With Spring REST Docs
+
+This is an example output for a service running at http://localhost:8080:
+
+.request
+include::{snippets}/customer/http-request.adoc[]
+
+.response
+include::{snippets}/customer/http-response.adoc[]
